@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        #form{
+            border: 2px solid orange;
+            width: 50%;
+            height: 50%;
+            padding: 5px;
+            
+        }
+        h1{
+            text-align: center;
+            color: orange;
+        }
+
+        p{
+            text-align: center;
+        }
+
+        button{
+            background-color: orange;
+            width: 100%;
+            height: 40px;
+            
+        }
+
+        .date{
+            width: 45%;
+        }
+
+
+    </style>
+    
+</head>
+<body >
+    <form action="#" >
+
+        <h1>Book a Call</h1> 
+        <p>Book a call slot and our representative will call you within 1hr of selected time.</p>
+        <hr>
+        <label for="name">Name:</label>
+        <br>
+        <input type="text" id="name" name="name" size="100%"  >
+        <br><br>
+        <label for="mail" >Email:</label>
+        <br>
+        <input type="email" name="mail" id="mail" size="100%" >
+        <br><br>
+        <label for="phone">Phone:</label>
+        <br>
+        <input type="tel" name="phone" id="phone" size="100%"  >
+        <br><br>
+        <label for="date">Time for Call:</label>
+        <br>
+        <input type="date" id="date" name="date" class="date" placeholder="22/11/2020" size="50%" >
+        <input type="time" id="time" name="time" class="date" value="11:00" >
+        <br><br>
+        <button id="btn" >GET A CALL</button>
+        
+
+    </form>
+
+    
+    <ul id="list">
+
+    </ul>
+
+    <script src="dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"></script>
+    
+    
+
+
+
+</body>
+</html>
