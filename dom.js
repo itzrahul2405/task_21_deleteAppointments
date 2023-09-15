@@ -93,8 +93,8 @@ function appendInList(myObj){
         const url = 'https://crudcrud.com/api/03c8c3be966d4f05bb688a28b2b8fc72/bookingappointmentdata' + '/' + myObj._id
 
         axios.delete(url)
-        .then(console.log('deleted'))
-        .catch((err) => console.log(err))
+        .then(() => console.log('deleted'))
+        .catch((err) => console.log('Error : ',err))
 
     }
 
