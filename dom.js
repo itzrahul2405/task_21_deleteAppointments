@@ -2,7 +2,7 @@
 // (one solution by local storage we did in 3_hours_js_project and second solution we are going to do in this task by network using axios)
 
 
-
+//  it contains solution of task_21 and task_22
 
 
 
@@ -34,17 +34,9 @@ function registerUser(e){
 
 
 
-    // let serialized = JSON.stringify(myObj);
-    // localStorage.setItem(mail, serialized)
-    // console.log(localStorage.getItem(mail));
 
 
-    // appendInList(myObj);          // if we do not want to use eventlistener again
-
-
-
-
-    axios.post('https://crudcrud.com/api/03c8c3be966d4f05bb688a28b2b8fc72/bookingappointmentdata', myObj)
+    axios.post('https://crudcrud.com/api/88bf82b0d092422d9cfd242912cb003c/bookingappointmentdata', myObj)
     .then((response) => {
         console.log(response)
         appendInList(response.data); 
@@ -90,7 +82,7 @@ function appendInList(myObj){
 
 
         
-        const url = 'https://crudcrud.com/api/03c8c3be966d4f05bb688a28b2b8fc72/bookingappointmentdata' + '/' + myObj._id
+        const url = 'https://crudcrud.com/api/88bf82b0d092422d9cfd242912cb003c/bookingappointmentdata' + '/' + myObj._id
 
         axios.delete(url)
         .then(() => console.log('deleted'))
@@ -109,24 +101,36 @@ function appendInList(myObj){
 
     editBtn.onclick = () =>{
 
-        info = JSON.parse(localStorage.getItem(mail))
 
-        document.getElementById('name').value = info.name;
-        document.getElementById('mail').value = info.mail;
-        document.getElementById('phone').value = info.phone;
-        document.getElementById('date').value = info.date;
-        document.getElementById('time').value = info.time;
 
-        localStorage.removeItem(mail)
+        const url = 'https://crudcrud.com/api/88bf82b0d092422d9cfd242912cb003c/bookingappointmentdata' + '/' + myObj._id
+
+        axios.get(url)
+        .then((res) => {
+            document.getElementById('name').value = res.data.name;
+            document.getElementById('mail').value = res.data.mail;
+            document.getElementById('phone').value = res.data.phone;
+            document.getElementById('date').value = res.data.date;
+            document.getElementById('time').value = res.data.time;
+
+            axios.delete(url)
+            .then(() => console.log('previous deleted, please update and resend'))
+            .catch((err) => console.log(err))
+
+            console.log(res.data)
+
+
+        })
+        .catch((err) => console.log(err))
+
+    
+
+
         document.getElementById('list').removeChild(new_ele);
 
 
     }
 
-
-   
-
-    // new_ele.insertBefore(delNode, new_ele.lastChild.nextSibling)
 
     new_ele.appendChild(textNode)
     new_ele.appendChild(delBtn);
@@ -149,7 +153,7 @@ function appendInList(myObj){
     // to avoide to disappear data when refresh using axios (using local storage we already did in 3_hourse_js_project)
 
 window.addEventListener("DOMContentLoaded", () => {
-    axios.get('https://crudcrud.com/api/03c8c3be966d4f05bb688a28b2b8fc72/bookingappointmentdata')
+    axios.get('https://crudcrud.com/api/88bf82b0d092422d9cfd242912cb003c/bookingappointmentdata')
     .then((response) => {
         console.log(response)
         for(var i=0; i<response.data.length;i++){
@@ -162,7 +166,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
-    // const data = axios.get('https://crudcrud.com/api/03c8c3be966d4f05bb688a28b2b8fc72/bookingappointmentdata')
+    // const data = axios.get('https://crudcrud.com/api/88bf82b0d092422d9cfd242912cb003c/bookingappointmentdata')
     // .then((response) => {
     //     console.log(response)
     //     for(var i=0; i<response.data.length;i++){
